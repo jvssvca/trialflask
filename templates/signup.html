@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<title>The Fitness Factory | Join Us</title>
+
+<body class="form__body">
+    <div class="rows">
+        <div class="cols"></div>
+        <div class="cols">
+            <div class="container2">
+                <h3 class="form__title">SIGN UP</h3>
+                <div class="box">
+                    {% with messages = get_flashed_messages() %} {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }}<br />
+                        Go to <a href="{{ url_for('auth.login') }}">login page</a>.
+                    </div>
+                    {% endif %} {% endwith %}
+
+                    <form method="POST" action="/signup">
+                        <div class="field">
+                            <div class="control">
+                                <input class="form__input" type="email" name="email" placeholder="Email" autofocus="" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="form__input" type="text" name="name" placeholder="Name" autofocus="" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="form__input" type="password" name="password" placeholder="Password" />
+                            </div>
+                        </div>
+                       
+                        <p>&nbsp;</p>
+                        <label for="Membership">CHOOSE A MEMBERSHIP:</label>
+
+                        <select name="Membership" id="Membership">
+                            <option value="Basic">Basic</option>
+                            <option value="Premium">Premium</option>
+                            <option value="Elite">Elite</option>
+                        </select>
+                        <p>&nbsp;</p>
+                       
+                        <button class="form__button">SIGN UP</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}

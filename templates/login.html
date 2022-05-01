@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<title>The Fitness Factory | Log In</title>
+
+<body class="form__body">
+    <div class="rows">
+        <div class="cols"></div>
+        <div class="cols">
+            <div class="container2">
+                <h3 class="form__title">LOGIN</h3>
+                <div class="box">
+                    {% with messages = get_flashed_messages() %} {% if messages %}
+                    <div class="notification is-danger">
+                        {{ messages[0] }}
+                    </div>
+                    {% endif %} {% endwith %}
+
+                    <form method="POST" action="/login">
+                        <div class="field">
+                            <div class="control">
+                                <input class="form__input" type="email" name="email" placeholder="Your Email" autofocus="" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <div class="control">
+                                <input class="form__input" type="password" name="password" placeholder="Your Password" />
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label class="checkbox">
+                                <input type="checkbox" />
+                                Remember me
+                            </label>
+                        </div>
+
+                        <button class="form__button">LOGIN</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+{% endblock %}
